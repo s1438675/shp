@@ -6,6 +6,7 @@ s1438675@ed.ac.uk
 
 # Imports
 from astropy.io import fits
+from scipy.fftpack import fft, ifft
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -58,6 +59,9 @@ def plotarray(_inputarray):
     axes.set_xlim([0, 2])
     axes.set_ylim([np.amin(_plotarray[:, 1], axis=0) - np.amax(_plotarray[:, 2], axis=0),
                    np.amax(_plotarray[:, 1], axis=0) + np.amax(_plotarray[:, 2], axis=0)])
+    # Determine line of best fit for data
+    _X = fft(_plotarray[:, 0])
+    _x = ifft(_plotarray[:, 0])
     # Label x axis
     plt.xlabel("Phase")
     # Label y axis
@@ -82,9 +86,9 @@ def main(_filename, _period):
                 _kbandarray = np.append(_kbandarray, np.array([_row[0], _row[1], _row[2]], ndmin=2), axis=0)
         # Delete blank first entry
         _kbandarray = np.delete(_kbandarray, 0, axis=0)
-
-        #_kbandarray = appmagnitudetoabsmagnitude(_kbandarray, 0.5187)
+        # Fold curve
         _kbandarray = foldcurve(_kbandarray, _period)
+        # Plot to screen
         plotarray(_kbandarray)
 
 
