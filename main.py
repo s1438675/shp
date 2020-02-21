@@ -60,8 +60,7 @@ def plotarray(_inputarray):
     axes.set_ylim([np.amin(_plotarray[:, 1], axis=0) - np.amax(_plotarray[:, 2], axis=0),
                    np.amax(_plotarray[:, 1], axis=0) + np.amax(_plotarray[:, 2], axis=0)])
     # Determine line of best fit for data
-    _X = fft(_plotarray[:, 0])
-    _x = ifft(_plotarray[:, 0])
+
     # Label x axis
     plt.xlabel("Phase")
     # Label y axis
