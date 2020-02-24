@@ -26,8 +26,6 @@ def plotcurve(_inputkband, _inputhband, _inputjband, _inputyband, _inputzband):
     _inputjband = doublearrayphase(_inputjband)
     _inputyband = doublearrayphase(_inputyband)
     _inputzband = doublearrayphase(_inputzband)
-    plt.show()
-    plt.show()
 
 
 # Plot a single band using pyplot
