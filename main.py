@@ -9,6 +9,7 @@ from astropy.io import fits
 import math
 import numpy as np
 import matplotlib.pyplot as plt
+import numpy.polynomial.polynomial as poly
 
 # Global Variables
 _kbandarray = np.zeros((1, 3), dtype=float)
@@ -63,7 +64,8 @@ def plotarray(_inputarray):
     axes.set_ylim([np.amin(_plotarray[:, 1], axis=0) - np.amax(_plotarray[:, 2], axis=0),
                    np.amax(_plotarray[:, 1], axis=0) + np.amax(_plotarray[:, 2], axis=0)])
     # Determine line of best fit for data
-
+    _p = poly.Polynomial.fit(_plotarray[:, 0], _plotarray[:, 1], 40)
+    plt.plot(*_p.linspace())
     # Label x axis
     plt.xlabel("Phase")
     # Label y axis
@@ -154,7 +156,8 @@ def main(_filename, _period):
         _ybandarray = foldcurve(_ybandarray, _period)
         _zbandarray = foldcurve(_zbandarray, _period)
         # Plot to screen
-        plotbands(_kbandarray, _hbandarray, _jbandarray, _ybandarray, _zbandarray)
+        #plotbands(_kbandarray, _hbandarray, _jbandarray, _ybandarray, _zbandarray)
+        plotarray(_kbandarray)
 
 
 # Program entry point
