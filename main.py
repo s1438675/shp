@@ -83,21 +83,21 @@ def plotbands(_inputarrayk, _inputarrayh, _inputarrayj, _inputarrayy, _inputarra
     _plotarrayy = np.zeros((_inputarrayy.shape[0] * 2, _inputarrayy.shape[1]), dtype=float)
     _plotarrayz = np.zeros((_inputarrayz.shape[0] * 2, _inputarrayz.shape[1]), dtype=float)
     # Iterate through array
-    for i in range(0, _plotarrayh.shape[0]):
+    for i in range(0, _plotarrayk.shape[0]):
         # Before phase 1 simply copy the data
-        if i < _inputarrayh.shape[0]:
-            _plotarrayh[i] = _inputarrayh[i]
+        if i < _inputarrayk.shape[0]:
+            _plotarrayk[i] = _inputarrayk[i]
         # After phase 1 shift all by +1
         else:
-            _plotarrayh[i] = _inputarrayh[i - _inputarrayh.shape[0]]
-            _plotarrayh[i][0] = _plotarrayh[i][0] + 1
+            _plotarrayk[i] = _inputarrayk[i - _inputarrayk.shape[0]]
+            _plotarrayk[i][0] = _plotarrayk[i][0] + 1
     # Set pyplot type
     plt.style.use('seaborn-whitegrid')
     plt.errorbar(_plotarrayk[:, 0], _plotarrayk[:, 1], yerr=_plotarrayk[:, 2], fmt='.k')
-    plt.errorbar(_plotarrayh[:, 0], _plotarrayh[:, 1], yerr=_plotarrayh[:, 2], fmt='.k')
-    plt.errorbar(_plotarrayj[:, 0], _plotarrayj[:, 1], yerr=_plotarrayj[:, 2], fmt='.k')
-    plt.errorbar(_plotarrayy[:, 0], _plotarrayy[:, 1], yerr=_plotarrayy[:, 2], fmt='.k')
-    plt.errorbar(_plotarrayz[:, 0], _plotarrayz[:, 1], yerr=_plotarrayz[:, 2], fmt='.k')
+    #plt.errorbar(_plotarrayh[:, 0], _plotarrayh[:, 1], yerr=_plotarrayh[:, 2], fmt='.k')
+    #plt.errorbar(_plotarrayj[:, 0], _plotarrayj[:, 1], yerr=_plotarrayj[:, 2], fmt='.k')
+    #plt.errorbar(_plotarrayy[:, 0], _plotarrayy[:, 1], yerr=_plotarrayy[:, 2], fmt='.k')
+    #plt.errorbar(_plotarrayz[:, 0], _plotarrayz[:, 1], yerr=_plotarrayz[:, 2], fmt='.k')
     # Set axis values to the limits of the data array, considering error bar size
     axes = plt.gca()
     axes.set_xlim([0, 2])
