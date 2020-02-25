@@ -59,8 +59,8 @@ def main(_filename, _period):
         # Read in fits tables
         _data = _file[1].data
         _kband, _hband, _jband, _yband, _zband = splitbands(_data)
-        _kband = foldcurve(_kband, _period)
-        plotarray.plotband(_kband)
+        # _kband = foldcurve(_kband, _period)
+        plotarray.plotlobf(_kband, _period)
 
 
 # Program entry point
