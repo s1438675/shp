@@ -10,57 +10,80 @@ import numpy as np
 import plotarray
 
 
-# Fold light curve+
-def foldcurve(_inputarray, _period):
-    _epoch = _inputarray[0][0]
-    # Update x axis to phase
-    for i in range(0, _inputarray.shape[0]):
-        _inputarray[i, 0] = ((_inputarray[i, 0] - _epoch) / _period) % 1
-    # Return updated array
-    return _inputarray
+def foldcurve(_band, _period):
+    """
+    Folds the magnitude measurements to a light curve using provided period
+    :param _band: Observation band to be folded
+    :param _period: Period of object
+    :return: Array same size as _band, but with a phase instead of Julian date
+    """
+    # Set epoch to first date observed
+    _epoch = _band[0][0]
+    # Iterate through array, update date to phase
+    for i in range(0, _band.shape[0]):
+        _band[i, 0] = ((_band[i, 0] - _epoch) / _period) % 1
+    # Return folded array
+    return _band
 
 
-# Split fits array into k, h, j, y, z bands
-def splitbands(_inputarray):
-    _kband = np.zeros((1, 3), dtype=float)
-    _hband = np.empty((1, 3), dtype=float)
-    _jband = np.empty((1, 3), dtype=float)
-    _yband = np.empty((1, 3), dtype=float)
-    _zband = np.empty((1, 3), dtype=float)
-    for _row in _inputarray:
-        # If good k band reading, append to array
-        if _row[1] > -100:
-            _kband = np.append(_kband, np.array([_row[0], _row[1], _row[2]], ndmin=2), axis=0)
-        # If a good h band reading, append to array
-        if _row[3] > -100:
-            _hband = np.append(_hband, np.array([_row[0], _row[3], _row[4]], ndmin=2), axis=0)
-        # If a good j band reading, append to array
-        if _row[5] > -100:
-            _jband = np.append(_jband, np.array([_row[0], _row[5], _row[6]], ndmin=2), axis=0)
-        # If a good y band reading, append to array
-        if _row[7] > -100:
-            _yband = np.append(_yband, np.array([_row[0], _row[7], _row[8]], ndmin=2), axis=0)
-        # If a good z band reading, append to array
-        if _row[9] > -100:
-            _zband = np.append(_zband, np.array([_row[0], _row[9], _row[10]], ndmin=2), axis=0)
-    _kband = delfirst(_kband)
-    return _kband, _hband, _jband, _yband, _zband
+def splitbands(_data):
+    """
+    Split observed bands in FITS file to seperate array for each band
+    :param _data: Data from FITS file to be split
+    :return: Returns k, h, j, y, z arrays - where each array is [date][mag][mag_err]
+    """
+    def createband(_data, _id):
+        """
+        Creates a new array for measurements in a band
+        :param _data: FITS file to be split
+        :param _id: ID of band, k = 1, h = 2, j = 3, y = 4, z = 5
+        :return: Returns band data in a [n, 3] array
+        """
+        # Create empty array to store values
+        _band = np.zeros((1, 3), dtype=float)
+        # Go through each row of FITS data
+        for _row in _data:
+            # If a good reading, append to array
+            if _row[(_id * 2) - 1] > -100:
+                _band = np.append(_band, np.array([_row[0], _row[(_id * 2) - 1], _row[_id * 2]], ndmin=2), axis=0)
+        # Delete the first (empty) row in the array
+        _band = delfirst(_band)
+        # Return band array
+        return _band
+
+    def delfirst(_band):
+        """
+        Deletes the first entry in an array
+        :param _band: Band array to have first entry deleted
+        :return: Array of size [n - 1, 3], empty first row deleted
+        """
+        # Delete the first row of array
+        _band = np.delete(_band, 0, axis=0)
+        # Return new array
+        return _band
+    # Create the band arrays from data and band ids
+    _kband = createband(_data, 1)
+    _hband = createband(_data, 2)
+    # Return created band arrays
+    return _kband, _hband
 
 
-def delfirst(_inputarray):
-    _inputarray = np.delete(_inputarray, 0, axis=0)
-    return _inputarray
-
-
-# Main function
 def main(_filename, _period):
-    # Open file with astropy fits library
+    """
+    Main method of the program, reads in a FITS table and determines stellar properties from spectroscopic data
+    within the file
+    :param _filename: FITS file to be opened
+    :param _period: Period of object
+    """
+    # Open the file with astropy.io.fits library
     with fits.open(_filename) as _file:
-        # Read in fits tables
+        # Read data in file, file[0].data contains header information
         _data = _file[1].data
-        _kband, _hband, _jband, _yband, _zband = splitbands(_data)
-        # _kband = foldcurve(_kband, _period)
+        # Split FITS file into seperate bands
+        _kband, _hband = splitbands(_data)
+        # Plot split bands
         plotarray.plotlobf(_kband, _period)
+        plotarray.plotlobf(_hband, _period)
 
 
 # Program entry point
