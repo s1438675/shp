@@ -10,22 +10,6 @@ import numpy as np
 import plotarray
 
 
-def foldcurve(_band, _period):
-    """
-    Folds the magnitude measurements to a light curve using provided period
-    :param _band: Observation band to be folded
-    :param _period: Period of object
-    :return: Array same size as _band, but with a phase instead of Julian date
-    """
-    # Set epoch to first date observed
-    _epoch = _band[0][0]
-    # Iterate through array, update date to phase
-    for i in range(0, _band.shape[0]):
-        _band[i, 0] = ((_band[i, 0] - _epoch) / _period) % 1
-    # Return folded array
-    return _band
-
-
 def splitbands(_data):
     """
     Split observed bands in FITS file to seperate array for each band
@@ -83,7 +67,6 @@ def main(_filename, _period):
         _kband, _hband = splitbands(_data)
         # Plot split bands
         plotarray.plotlobf(_kband, _period)
-        plotarray.plotlobf(_hband, _period)
 
 
 # Program entry point

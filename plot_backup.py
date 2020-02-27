@@ -1,37 +1,10 @@
-"""
-Matthew Christey-Reid
-Senior Honours Project
-s1438675@ed.ac.uk
-"""
-
-# Imports
 import numpy as np
 import matplotlib.pyplot as plt
 from astropy.timeseries import LombScargle
 
 
-def foldcurve(_band, _period):
-    """
-    Folds the magnitude measurements to a light curve using provided period
-    :param _band: Observation band to be folded
-    :param _period: Period of object
-    :return: Array same size as _band, but with a phase instead of Julian date
-    """
-    # Set epoch to first date observed
-    _epoch = _band[0][0]
-    # Iterate through array, update date to phase
-    for i in range(0, _band.shape[0]):
-        _band[i, 0] = ((_band[i, 0] - _epoch) / _period) % 1
-    # Return folded array
-    return _band
-
-
+# Take array from phase 0 -> 1, returns a doubled array from 0 -> 2
 def doublearrayphase(_inputarray):
-    """
-    Doubles a band array from phase 0 -> 1 to 0 -> 2 as convention
-    :param _inputarray: Array to be doubled
-    :return: Returns an array from phase 0 -> 2, size [n * 2, 3]
-    """
     # Create a new array twice the size of the input
     _newarray = np.zeros((_inputarray.shape[0] * 2, _inputarray.shape[1]), dtype=float)
     # Iterate through the input array
@@ -47,25 +20,35 @@ def doublearrayphase(_inputarray):
     return _newarray
 
 
-def plotband(_band, _period):
-    """
-    Plots an observed band using pyplot
-    :param _band: Array to be plotted
-    :param _period: Period of object
-    """
-    _band = foldcurve(_band, _period)
-    _band = doublearrayphase(_band)
-    plt.plot(_band[:, 0], _band[:, 1], 'b.')
+# Plot all bands on the same graph
+def plotcurve(_inputkband, _inputhband, _inputjband, _inputyband, _inputzband):
+    _inputkband = doublearrayphase(_inputkband)
+    _inputhband = doublearrayphase(_inputhband)
+    _inputjband = doublearrayphase(_inputjband)
+    _inputyband = doublearrayphase(_inputyband)
+    _inputzband = doublearrayphase(_inputzband)
+
+
+# Plot a single band using pyplot
+def plotband(_inputband):
+    # Double array to phase 0 -> 2
+    _inputband = doublearrayphase(_inputband)
+    # Set pyplot style to use
+    plt.style.use('seaborn-whitegrid')
+    # Plot data as scatter graph with y-axis error bars
+    plt.errorbar(_inputband[:, 0], _inputband[:, 1], yerr=_inputband[:, 2], fmt='.k')
+    # Set the x-axis label
+    plt.xlabel("Phase")
+    # Set the y-axis label
+    plt.ylabel("Magnitude")
+    # Flip y-axis as convention
     plt.gca().invert_yaxis()
+    # Display to screen
     plt.show()
 
 
+# Plot a Lomb-Scargle line of best fit
 def plotlobf(_inputband, _period):
-    """
-    Creates a line of best fit using Lomb-Scargle methods
-    :param _inputband: Band array to be fit
-    :param _period: Period of object
-    """
     # Create a model with 10 terms
     _ls = LombScargle(_inputband[:, 0], _inputband[:, 1], _inputband[:, 2], nterms=10)
     # Create n linearly spaced points between phase 0 and 1
@@ -91,12 +74,8 @@ def plotlobf(_inputband, _period):
     plt.show()
 
 
+# Calculate critical points of the line of best fit
 def getcritpoints(_inputarray):
-    """
-    Get the critical points of an array
-    :param _inputarray: Array to get critical points [x, y]
-    :return: Two arrays, value is the index of critical point in _inputarray
-    """
     _max, _min = [], []
     if len(_inputarray) < 3:
         return _min, _max
