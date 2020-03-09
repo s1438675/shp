@@ -7,6 +7,7 @@ s1438675@ed.ac.uk
 # Imports
 import numpy as np
 import matplotlib.pyplot as plt
+import scipy.stats as stats
 from astropy.timeseries import LombScargle
 
 
@@ -47,6 +48,15 @@ def doublearrayphase(_inputarray):
     return _newarray
 
 
+def plotbands(_kband, _hband, _jband, _period):
+    kx, kl = calclobf(_kband, _period)
+    hx, hl = calclobf(_hband, _period)
+    jx, jl = calclobf(_jband, _period)
+    plt.plot(kx, kl, 'b.')
+    plt.plot(hx, hl, 'r.')
+    plt.plot(jx, jl, 'k.')
+    plt.show()
+
 def plotband(_band, _period):
     """
     Plots an observed band using pyplot
@@ -60,11 +70,12 @@ def plotband(_band, _period):
     plt.show()
 
 
-def plotlobf(_inputband, _period):
+def calclobf(_inputband, _period):
     """
     Creates a line of best fit using Lomb-Scargle methods
     :param _inputband: Band array to be fit
     :param _period: Period of object
+    :return: Returns a linearly spaced x-axis, with y-axis values for line of best fit
     """
     # Create a model with 10 terms
     _ls = LombScargle(_inputband[:, 0], _inputband[:, 1], _inputband[:, 2], nterms=10)
@@ -72,11 +83,23 @@ def plotlobf(_inputband, _period):
     _xfit = np.linspace(0, 1, 1000)
     # Frequency = 1 / Period
     _freq = 1 / _period
+    # Plot the line of best fit generated
+    _lobf = _ls.model(_xfit / _freq, _freq)
+    return _xfit, _lobf
+
+
+def plotlobf(_inputband, _period):
+    """
+    Plots line of best fit to screen using pyplot
+    :param _inputband: Band of array to be plotted
+    :param _period: Period of object
+    """
+    # Frequency = 1 / Period
+    _freq = 1 / _period
+    _xfit, _lobf = calclobf(_inputband, _period)
     # Plot the data in the array to screen, lightly coloured and z rank behind the line of best fit
     plt.errorbar((_inputband[:, 0] * _freq) % 1, _inputband[:, 1], _inputband[:, 2], fmt='.', color='gray',
                  ecolor='lightgray', capsize=0, zorder=0)
-    # Plot the line of best fit generated
-    _lobf = _ls.model(_xfit / _freq, _freq)
     plt.plot(_xfit, _lobf, '-k', lw=2, zorder=2)
     # Get maxima and minima of the fit
     _max, _min = getcritpoints(_lobf)
@@ -121,3 +144,10 @@ def getcritpoints(_inputarray):
             begin = i
             ps = s
     return _min, _max
+
+
+def plotarray(_inputarray):
+    plt.plot(_inputarray[:, 0], _inputarray[:, 1], 'b.')
+    plt.xlim([0, 3])
+    plt.ylim([0, 0.001])
+    plt.show()
