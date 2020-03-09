@@ -8,6 +8,7 @@ s1438675@ed.ac.uk
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as stats
+from scipy.optimize import curve_fit
 from astropy.timeseries import LombScargle
 
 
@@ -150,4 +151,19 @@ def plotarray(_inputarray):
     plt.plot(_inputarray[:, 0], _inputarray[:, 1], 'b.')
     plt.xlim([0, 3])
     plt.ylim([0, 0.001])
+    plt.show()
+
+
+def plotblackbody(_inputarray):
+    """
+    mean, std = stats.norm.fit(_inputarray)
+    x = np.linspace(0, 5, 100)
+    y = stats.norm.pdf(x, mean, std)
+    plt.plot(x, y)
+    plt.show()
+    return
+    """
+    params = stats.maxwell.fit(_inputarray, floc=0)
+    x = np.linspace(0, 5, 100)
+    plt.plot(x, stats.maxwell.pdf(x, *params))
     plt.show()

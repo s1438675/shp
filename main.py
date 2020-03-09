@@ -61,6 +61,7 @@ def calcfluxdensity(_mag, _id):
     Calculates the flux density of an object given a magnitude in the vega photometric system
     fb = fa * 10 ^ (-fb / 2.5)
     :param _mag: Magnitude of the star being calculated
+    :param _id: Band id of observation
     :return: Returns the flux density in Jy
     """
     # Set 0 point for flux density using provided band id
@@ -111,6 +112,17 @@ def calcpeakfluxdensity(_inputband, _period, _id):
     return _fluxdensity
 
 
+def calcflux(_fluxdensity, _bandwidth):
+    """
+    Calculate the flux from flux density
+    F = f * dlambda
+    :param _fluxdensity: Flux density of object per unit wavelength in W/m^2/Hz
+    :param _bandwidth: Width of the observation band in metres
+    :return: Returns the flux of an object
+    """
+    return _fluxdensity * _bandwidth
+
+
 def calcdistance(_parallax):
     """
     Calculate the distance to an object using parallax angle
@@ -137,12 +149,12 @@ def main(_filename, _period, _parallax):
         _kfluxd = calcpeakfluxdensity(_kband, _period, 1)
         _hfluxd = calcpeakfluxdensity(_hband, _period, 2)
         _jfluxd = calcpeakfluxdensity(_jband, _period, 3)
-        _bb = np.array([[2.2, _kfluxd], [1.6, _hfluxd], [1.2, _jfluxd]], dtype=float)
-        #plotarray.plotbands(_kband, _hband, _jband, _period)
-        plotarray.plotlobf(_hband, _period)
-        print(_hfluxd)
-        print(4 * math.pi * math.pow(calcdistance(_parallax), 2) * (math.pow(9.8, -30)))
-        #print(4 * math.pi * math.pow(calcdistance(_parallax), 2) * (_hfluxd * math.pow(10, -26)))
+        _bb = np.array([[1.2, _jfluxd], [1.6, _hfluxd], [2.2, _kfluxd]], dtype=float)
+        plotarray.plotarray(_bb)
+        plotarray.plotbands(_kband, _hband, _jband, _period)
+        plotarray.plotlobf(_jband, _period)
+        plotarray.plotblackbody(_bb)
+
 
 # Program entry point
 main('Data/858994114024.fits', 0.558301, 0.5187)
