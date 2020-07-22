@@ -1,3 +1,4 @@
+# Import numpy for data processing
 import numpy as np
 
 
@@ -48,6 +49,11 @@ def splitbands(_data):
 
 
 def maxminvals(_band):
+    """
+    Determine the minimum and maximum values of a given array
+    :param _band: The observed band to have values returned from
+    :return: Two values, maximum and minimum of given array
+    """
     _max = 100
     _min = 0
     for _coord in _band:
