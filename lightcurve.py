@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+"""
+Author: Matthew Christey-Reid
+Email:  s1438675@ed.ac.uk
+Date:   02/06/2020
+
+lightcurve.py - Plots the light curve of an observed source
+"""
+
 # Import numpy for data processing
 import numpy as np
 

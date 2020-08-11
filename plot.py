@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+"""
+Author: Matthew Christey-Reid
+Email:  s1438675@ed.ac.uk
+Date:   02/06/2020
+
+plot.py - Main functions to determine properties of the eclipsing binaries from observed data
+"""
+
 # Import libraries for data processing
 import math
 import numpy as np

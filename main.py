@@ -5,7 +5,6 @@ Email:  s1438675@ed.ac.uk
 Date:   02/06/2020
 
 main.py - Main entry point of the program
-main(): Takes 3 arguments, FITS file, period (days) and parallax angle (mas)
 """
 
 # Import library for passing arguments
