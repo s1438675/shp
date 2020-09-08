@@ -1,0 +1,462 @@
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 2.0
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 2.000000538099477
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 5.224661802767704e+25
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 7.656002059844798e+26
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 1.0000002690497385
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 1.0000002690497385
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 4.915858158510098e+26
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 3.3547138764892583e+25
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+0.9999997309503339
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 3.354717846962625e+25
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+3.142351415233684e-08
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 1.6626594886064492e+33
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+1927.8964918387665
+3.142351415233684e-08
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 1.6626594886064492e+33
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+1927.8964918387665
+1.7875699618900737e-08
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 2.9227725395150037e+33
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+1927.8964918387665
+1.7875699618900737e-08
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 2.9227725395150037e+33
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+0.0005187000465186965
+1.7875699618900737e-08
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 2.9227725395150037e+33
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+1927.8964918387665
+55941866.40631718
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 1.2209665047444436e+26
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+1927.8964918387665
+55941866.40631718
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 1.2209665047444436e+26
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+1927.8964918387665
+0.4969342280230837
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 9.633757824503983e+25
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+1927.8964918387665
+496.9342280230837
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 8.285724125949529e+25
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 3.0667798948216586e+19
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 8.011441731509034e-08
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 7.649259459016915e-22
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error : 0.045504757655420246
+Solar radii: 1.69
+Solar masses: 1.03
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 0.045504757655420246
+Solar radii: 1.69
+Solar masses: 1.03, error: 0.00014557811542960416
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901
+Solar radii: 1.47
+Solar masses: 0.971
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 0.045504757655420246
+Solar radii: 1.69, error: 0.0012019527589652655
+Solar masses: 1.03, error: 0.00014557811542960416
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901, error: 0.037022430739091054
+Solar radii: 1.47, error: 0.0009064023854582882
+Solar masses: 0.971, error: 0.000129806912010566
+Values for the large star:
+Effective temperature: 4560.0
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 0.0455
+Solar radii: 1.69, error: 0.0012
+Solar masses: 1.03, error: 0.000146
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901, error: 0.037
+Solar radii: 1.47, error: 0.000906
+Solar masses: 0.971, error: 0.00013
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 1.64e-12
+Solar radii: 1.69, error: 1.5600000000000002e-24
+Solar masses: 1.03, error: 1.8800000000000002e-25
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901, error: 1.33e-12
+Solar radii: 1.47, error: 1.1700000000000002e-24
+Solar masses: 0.971, error: 1.6800000000000003e-25
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 5120.0
+Solar radii: 1.69, error: 15200000.0
+Solar masses: 1.03, error: 1840000.0
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901, error: 4170.0
+Solar radii: 1.47, error: 11500000.0
+Solar masses: 0.971, error: 1650000.0
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 4.8100000000000005e-21
+Solar radii: 1.69, error: 1.3400000000000002e-41
+Solar masses: 1.03, error: 1.6200000000000002e-42
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901, error: 3.91e-21
+Solar radii: 1.47, error: 1.0100000000000001e-41
+Solar masses: 0.971, error: 1.45e-42
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 0.286
+Solar radii: 1.69, error: 0.0475
+Solar masses: 1.03, error: 0.00575
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901, error: 0.233
+Solar radii: 1.47, error: 0.0358
+Solar masses: 0.971, error: 0.00512
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 0.286
+Solar radii: 1.69, error: 0.0475
+Solar masses: 1.03, error: 0.00575
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901, error: 0.233
+Solar radii: 1.47, error: 0.0358
+Solar masses: 0.971, error: 0.00512
+Values for the large star:
+Effective temperature: 4560.0
+Solar luminosities: 1.11, error: 0.286
+Solar radii: 1.69, error: 0.0475
+Solar masses: 1.03, error: 0.00575
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4650.0
+Solar luminosities: 0.901, error: 0.233
+Solar radii: 1.47, error: 0.0358
+Solar masses: 0.971, error: 0.00512
+Values for the large star:
+Effective temperature: 7250.0
+Solar luminosities: 5.04, error: 1.17
+Solar radii: 1.43, error: 0.0275
+Solar masses: 1.59, error: 0.0111
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 7200.0
+Solar luminosities: 2.95, error: 0.686
+Solar radii: 1.11, error: 0.0165
+Solar masses: 1.36, error: 0.00819
+Values for the large star:
+Effective temperature: 8710.0
+Solar luminosities: 1730.0, error: 494.0
+Solar radii: 18.3, error: 6.82
+Solar masses: 8.42, error: 0.471
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 6330.0
+Solar luminosities: 91.7, error: 26.2
+Solar radii: 7.98, error: 1.3
+Solar masses: 3.64, error: 0.0881
+Values for the large star:
+Effective temperature: 8230.0
+Solar luminosities: 92.2, error: 201.0
+Solar radii: 4.73, error: 26.6
+Solar masses: 3.64, error: 5.14
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 8580.0
+Solar luminosities: 150.0, error: 328.0
+Solar radii: 5.56, error: 36.8
+Solar masses: 4.19, error: 6.81
+Values for the large star:
+Effective temperature: 4610.0
+Solar luminosities: 173.0, error: 36.8
+Solar radii: 20.7, error: 4.83
+Solar masses: 4.36, error: 0.0702
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 5370.0
+Solar luminosities: 201.0, error: 42.8
+Solar radii: 16.4, error: 3.05
+Solar masses: 4.55, error: 0.0765
+Values for the large star:
+Effective temperature: 4770.0
+Solar luminosities: 8.23, error: 1.12
+Solar radii: 4.21, error: 0.0823
+Solar masses: 1.83, error: 0.00506
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 5550.0
+Solar luminosities: 9.51, error: 1.3
+Solar radii: 3.34, error: 0.0518
+Solar masses: 1.9, error: 0.00549
+Values for the large star:
+Effective temperature: 4300.0
+Solar luminosities: 7.92, error: 1.27
+Solar radii: 5.08, error: 0.166
+Solar masses: 1.81, error: 0.00684
+-----------------------------------------------------
+Values for the small star:
+Effective temperature: 4850.0
+Solar luminosities: 5.83, error: 0.934
+Solar radii: 3.43, error: 0.0755
+Solar masses: 1.65, error: 0.00575

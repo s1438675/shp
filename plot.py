@@ -74,6 +74,8 @@ def plotallbands(_zband, _yband, _jband, _hband, _kband, _period):
     plt.legend()
     # Invert y-axis as convention
     plt.gca().invert_yaxis()
+    # Save to current folder
+    plt.savefig('curve.png')
     # Display to screen
     plt.show()
 
@@ -160,7 +162,7 @@ def doublearrayphase(_inputarray):
     return _newarray
 
 
-def plotblackbody(_zband, _yband, _jband, _hband, _kband, _parallax):
+def plotblackbody(_zband, _yband, _jband, _hband, _kband, _parallax, _perr):
     """
     Determines the black body curve and determines mass, radius and luminosities in solar units
     :param _zband: Observed z-band
@@ -169,6 +171,7 @@ def plotblackbody(_zband, _yband, _jband, _hband, _kband, _parallax):
     :param _hband: Observed h-band
     :param _kband: Observed k-band
     :param _parallax: Parallax angle (mas)
+    :param _perr: Parallax angle error (mas)
     """
     # Set pyplot style to be consistent within the program
     plt.style.use('seaborn-whitegrid')
@@ -176,6 +179,7 @@ def plotblackbody(_zband, _yband, _jband, _hband, _kband, _parallax):
     _hrdata = inithr('hr.dat')
     # Determine distance in parsecs
     _distance = 1 / np.tan(_parallax * 10**-3)
+    _derr = (_perr * 10**-3) / ((_parallax * 10**-3)**2)
     # Create single data array with all bands
     _bands = [_zband, _yband, _jband, _hband, _kband]
     _lambda = [0.9, 1.02, 1.22, 1.63, 2.2]
@@ -207,35 +211,41 @@ def plotblackbody(_zband, _yband, _jband, _hband, _kband, _parallax):
     _smallstar = np.delete(_smallstar, 0, axis=0)
 
     # Determine the luminosity and effective temperature of each star
-    _luma, _wiena = getwientemp(_largestar, _distance, 1)
-    _lumb, _wienb = getwientemp(_smallstar, _distance, 2)
+    _luma, _lumaerr, _wiena = getwientemp(_largestar, _distance, _derr, 1)
+    _lumb, _lumberr, _wienb = getwientemp(_smallstar, _distance, _derr, 2)
 
     # Calculate luminosities in solar units
     _solluma = _luma / (3.828*10**26)
     _sollumb = _lumb / (3.828*10**26)
+    _lumaerr = _lumaerr / (3.828*10**26)
+    _lumberr = _lumberr / (3.828*10**26)
 
     # Calculate masses using the mass/luminosity relation in solar mass units
     # N.B. only works as an approximation for main sequence stars, giants and dwarfs are not sutiable for this
     # approximation
     _solmassa = np.power(_solluma, 1/3.5)
+    _solmassaerr = ((_solmassa * (1/3.5) * _lumaerr) / _solluma)**2
     _solmassb = np.power(_sollumb, 1/3.5)
+    _solmassberr = ((_solmassb * (1 / 3.5) * _lumberr) / _sollumb) ** 2
 
     # Calculate stellar radius in solar radii using the relationship between luminosity, surface area and temperature
     _solrada = np.sqrt(_solluma / np.power(_wiena / 5778, 4))
     _solradb = np.sqrt(_sollumb / np.power(_wienb / 5778, 4))
+    _solradaerr = ((_solrada * 0.5 * _lumaerr) / _solluma)**2
+    _solradberr = ((_solradb * 0.5 * _lumberr) / _sollumb)**2
 
-    # Output determined values to the screen
+    # Output determined values to the screen and write to file
     print('Values for the large star:')
     print('Effective temperature: ' + str(round_sig(_wiena)))
-    print('Solar luminosities: ' + str(round_sig(_solluma)))
-    print('Solar radii: ' + str(round_sig(_solrada)))
-    print('Solar masses: ' + str(round_sig(_solmassa)))
+    print('Solar luminosities: ' + str(round_sig(_solluma)) + ', error: ' + str(round_sig(_lumaerr)))
+    print('Solar radii: ' + str(round_sig(_solrada)) + ', error: ' + str(round_sig(_solradaerr)))
+    print('Solar masses: ' + str(round_sig(_solmassa)) + ', error: ' + str(round_sig(_solmassaerr)))
     print('-----------------------------------------------------')
     print('Values for the small star:')
     print('Effective temperature: ' + str(round_sig(_wienb)))
-    print('Solar luminosities: ' + str(round_sig(_sollumb)))
-    print('Solar radii: ' + str(round_sig(_solradb)))
-    print('Solar masses: ' + str(round_sig(_solmassb)))
+    print('Solar luminosities: ' + str(round_sig(_sollumb)) + ', error: ' + str(round_sig(_lumberr)))
+    print('Solar radii: ' + str(round_sig(_solradb)) + ', error: ' + str(round_sig(_solradberr)))
+    print('Solar masses: ' + str(round_sig(_solmassb)) + ', error: ' + str(round_sig(_solmassberr)))
 
     # Convert from luminosity to magnitude in solar units
     _luma = -2.5 * np.log10(_luma / (3.0128 * 10**28))
@@ -244,19 +254,22 @@ def plotblackbody(_zband, _yband, _jband, _hband, _kband, _parallax):
     # Plot Hertzsprung-Russell diagram using provided array
     plt.scatter(_hrdata[:, 1], _hrdata[:, 0], s=0.5)
     # Plot determined values for each star
-    plt.scatter(_wiena, _luma, s=16, c='red')
-    plt.scatter(_wienb, _lumb, s=16, c='pink')
+    plt.scatter(_wiena, _luma, s=16, c='red', label='Larger Star')
+    plt.scatter(_wienb, _lumb, s=16, c='green', label='Smaller Star')
     # Set the x and y axis limits to sensible values
+    plt.legend()
     plt.xlim(3000, 10000)
     plt.ylim(-10, 20)
     # Invert both axes as convention
     plt.gca().invert_xaxis()
     plt.gca().invert_yaxis()
+    # Save figure to current folder
+    plt.savefig('hr.png')
     # Display to screen
     plt.show()
 
 
-def getwientemp(_inputdata, _distance, _id):
+def getwientemp(_inputdata, _distance, _derr, _id):
     """
     Determines the effective temperature using Wien's law
     :param _inputdata: Black body curve of object
@@ -275,6 +288,7 @@ def getwientemp(_inputdata, _distance, _id):
 
     # Convert the distance in parsecs to metres
     _distance = 3.0857 * 10**16 * _distance
+    _derr = 3.0857 * 10**16 * _derr
     # Create array for x and y axis data
     _xdata = _inputdata[:, 0]
     _ydata = _inputdata[:, 1]
@@ -297,6 +311,7 @@ def getwientemp(_inputdata, _distance, _id):
     _area = np.trapz(_yplot, dx=5/100)
     # Total luminosity found by multiplying by the surface area of a sphere with diameter of the distance
     _lum = 4 * np.pi * _distance**2 * _area
+    _lumerr = 4 * np.pi * _distance * _derr * _area
     # Peak value of Maxwell-Boltzmann distribution
     _mu = 2 * _popt[0] * np.sqrt(2 / np.pi)
 
@@ -316,11 +331,14 @@ def getwientemp(_inputdata, _distance, _id):
     _lum = round_sig(_lum)
     # Set graph title
     plt.suptitle('Black Body Plot for the ' + _str)
+    # Save to current folder
+    _filename = _str + '.png'
+    plt.savefig(_filename)
     # Display to the screen
     plt.show()
 
     # Returns calculated values
-    return _lum, _wien
+    return _lum, _lumerr, _wien
 
 
 def inithr(_filename):
